@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-folder-mysql
+  namespace: monitoring
+  labels:
+    grafana_folder: "1"
+data:
+  folder.json: |
+    {
+      "id": 1,
+      "uid": "mysql-folder",
+      "title": "MySQL"
+    }
