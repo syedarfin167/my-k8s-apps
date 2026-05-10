@@ -46,3 +46,4 @@ data:
     - job_name: 'mysql'
       static_configs:
       - targets: ['mysqld-exporter.monitoring.svc.cluster.local:9104']
+    kind: ConfigMap
