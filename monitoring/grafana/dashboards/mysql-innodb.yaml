@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-mysql-innodb
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  mysql-innodb.json: |
+    {
+      "id": 7364,
+      "title": "MySQL InnoDB Metrics",
+      "tags": ["mysql", "innodb"],
+      "timezone": "browser",
+      "schemaVersion": 16,
+      "version": 1
+    }
