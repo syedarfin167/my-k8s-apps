@@ -7,4 +7,4 @@ spec:
   ingress_type: none
   projects_storage_size: 8Gi
   postgres_image: quay.io/sclorg/postgresql-15-c9s:latest
-  postgres_image_version: "15"
+  postgres_image_version: latest
