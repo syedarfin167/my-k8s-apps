@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx-demo
-        image: syedarfin167/nginx-demo:latest
+        image: syedarfin167/nginx:latest
         ports:
         - containerPort: 80
