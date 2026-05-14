@@ -10,3 +10,5 @@ images:
     newTag: v0.15.0
 
 namespace: awx
+
+# force update
