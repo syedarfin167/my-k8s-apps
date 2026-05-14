@@ -1,0 +1,46 @@
+name: Build and Deploy api-server
+
+on:
+  push:
+    paths:
+      - "api-server/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      GITHUB_SHA: ${{ github.sha }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          cd api-server
+          docker build -t ${DOCKERHUB_USERNAME}/api-server:${GITHUB_SHA} .
+
+      - name: Push Docker image
+        run: |
+          docker push ${DOCKERHUB_USERNAME}/api-server:${GITHUB_SHA}
+
+      - name: Update deployment.yaml with new image
+        run: |
+          sed -i "s|image: .*$|image: ${DOCKERHUB_USERNAME}/api-server:${GITHUB_SHA}|" api-server/deployment.yaml
+
+      - name: Commit updated deployment.yaml
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add api-server/deployment.yaml
+          git commit -m "Update image to ${GITHUB_SHA}"
+          git push
