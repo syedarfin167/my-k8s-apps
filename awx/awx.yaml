@@ -1,0 +1,8 @@
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx
+spec:
+  service_type: NodePort
+  ingress_type: none
+  projects_storage_size: 8Gi
