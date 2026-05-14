@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx-demo
-        image: sarfin167/nginx-demo:e462c98673a5def5827d12599553801eacaa1487
+        image: sarfin167/nginx-demo:56c75d14a92582ac264ac84688f795db8b57d1c5
         ports:
         - containerPort: 80
