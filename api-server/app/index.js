@@ -10,6 +10,6 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
-app.listen(port, () => {
-  console.log(`api-server listening on port ${port}`);
+app.listen(8080, '0.0.0.0', () => {
+  console.log('api-server listening on port 8080')
 });
