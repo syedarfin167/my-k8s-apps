@@ -3,11 +3,11 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-  res.send('Hello from api-server v2!');
+  res.send('Hello from api-server!');
 });
 
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'api-server' });
+  res.status(200).json({ status: 'ok' });
 });
 
 app.listen(port, () => {
