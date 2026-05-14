@@ -5,10 +5,14 @@ resources:
   - github.com/ansible/awx-operator/config/default?ref=2.19.1
 
 images:
+  # Fix the broken kube-rbac-proxy image
   - name: gcr.io/kubebuilder/kube-rbac-proxy
     newName: quay.io/brancz/kube-rbac-proxy
     newTag: v0.15.0
 
-namespace: awx
+  # IMPORTANT: Pin the operator image to the correct version
+  - name: quay.io/ansible/awx-operator
+    newTag: 2.19.1
 
-# force update
+namespace: awx
+# force-update
