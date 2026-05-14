@@ -35,7 +35,7 @@ jobs:
 
       - name: Update deployment.yaml with new image
         run: |
-          sed -i "s|image: .*$|image: ${DOCKERHUB_USERNAME}/api-server:${GITHUB_SHA}|" api-server/deployment.yaml
+          sed -i "s|image: .*$|image: ${DOCKERHUB_USERNAME}/api-server:${GITHUB_SHA}|" api-server/app/deployment.yaml
 
       - name: Commit updated deployment.yaml
         run: |
