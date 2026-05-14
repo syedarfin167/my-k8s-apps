@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-server
-        image: sarfin167/api-server:9b80a66755714b03d4fcf515a4276e5f14fd8243
+        image: sarfin167/api-server:03a51df9863d359db0cd5115a045546d86f5a662
         ports:
         - containerPort: 8080
         readinessProbe:
